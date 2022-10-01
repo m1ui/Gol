@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "857671821545",
+    "project_id": "diplom-1e41e",
+    "storage_bucket": "diplom-1e41e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857671821545:android:987f7af22b330c21dd6878",
+        "android_client_info": {
+          "package_name": "com.raspopova.gol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857671821545-3g2n2jqii2hion9fs3h3nnnrfkrmj70k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4NJ02t-hifyol_iCkqCjKaXwSYjwhXVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857671821545-3g2n2jqii2hion9fs3h3nnnrfkrmj70k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
