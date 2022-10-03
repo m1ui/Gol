@@ -12,4 +12,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="phone_number_hint">Номер телефона</string>
+    <string name="code_hint">Код</string>
+    <string name="login_btn">Войти</string>
+    <string name="login_title">Войдите в аккаунт</string>
+    <string name="login_text_about"><u>О нас</u></string>
 </resources>
