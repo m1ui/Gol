@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/login_title"
         android:layout_gravity="top|center"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="95dp"
         android:gravity="center"
         android:textColor="@color/green_500"
         android:textSize="32sp"/>
@@ -24,50 +24,54 @@
             android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/phone_number_cardview"
+            android:id="@+id/login_cardview"
             android:visibility="visible"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="5dp"
             android:layout_gravity="center">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconTint="@color/green_500"
-                app:startIconDrawable="@drawable/ic_baseline_phone_24">
+                app:startIconDrawable="@drawable/ic_baseline_mail_24">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phone_number_edittext"
+                    android:id="@+id/login_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/phone_number_hint"
-                    android:inputType="phone" />
+                    android:hint="@string/login_hint"
+                    android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/code_cardview"
-                android:visibility="gone"
+                android:id="@+id/password_cardview"
+                android:visibility="visible"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
                 android:layout_gravity="center">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:startIconTint="@color/green_500"
-                    app:startIconDrawable="@drawable/ic_baseline_pin_24">
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_baseline_password_24">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/code_edittext"
+                        android:id="@+id/password_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/code_hint"
-                        android:inputType="phone" />
+                        android:hint="@string/password_hint"
+                        android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,12 +79,21 @@
 
             <Button
                 android:id="@+id/login_btn"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="115dp"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/login_btn" />
+
+            <Button
+                android:id="@+id/register_btn"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/register_btn" />
 
     </LinearLayout>
 
@@ -94,6 +107,5 @@
         android:gravity="center"
         android:layout_marginBottom="25dp"
         android:textSize="18sp"/>
-
 
 </FrameLayout>
