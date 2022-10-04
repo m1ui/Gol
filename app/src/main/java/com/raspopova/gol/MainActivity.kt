@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_person -> {
-            val i = Intent(this, PersonalActivity::class.java)
+            val i = Intent(this, ProfileActivity::class.java)
             startActivity(i)
             // User chose the "Settings" item, show the app settings UI...
             true
@@ -88,11 +88,5 @@ class MainActivity : AppCompatActivity() {
             // FirebaseUser.getToken() instead.
             val uid = user.uid
         }
-    }
-
-    private fun signOut() {
-        // [START auth_sign_out]
-        Firebase.auth.signOut()
-        // [END auth_sign_out]
     }
 }
