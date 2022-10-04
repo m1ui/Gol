@@ -1,6 +1,9 @@
 package com.raspopova.gol
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -18,8 +21,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val auth = Firebase.auth
-        val user = auth.currentUser!!
+        //Save Auth
+        checkCurrentUser()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -37,8 +40,36 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        //Authentic
-        getUser()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.app_bar_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_person -> {
+            val i = Intent(this, PersonalActivity::class.java)
+            startActivity(i)
+            // User chose the "Settings" item, show the app settings UI...
+            true
+        }
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun checkCurrentUser() {
+        // [START check_current_user]
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            // User is signed in
+        } else {
+            // No user is signed in
+        }
+        // [END check_current_user]
     }
 
     private fun getUser() {
@@ -57,5 +88,11 @@ class MainActivity : AppCompatActivity() {
             // FirebaseUser.getToken() instead.
             val uid = user.uid
         }
+    }
+
+    private fun signOut() {
+        // [START auth_sign_out]
+        Firebase.auth.signOut()
+        // [END auth_sign_out]
     }
 }

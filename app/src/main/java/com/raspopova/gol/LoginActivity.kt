@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -26,11 +26,43 @@ class LoginActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         login_btn.setOnClickListener {
-            singIn(email = login_edittext.text.toString(), password = password_edittext.text.toString())
+            val email: String = login_edittext.text.toString()
+            val password: String = password_edittext.text.toString()
+            if (isEmailValid(email)) {
+                if (isPasswordValid(password)) {
+                    singIn(
+                        email = login_edittext.text.toString(),
+                        password = password_edittext.text.toString()
+                    )
+                } else {
+                    msgShow("Слишком короткий пароль")
+                    updateUI(null)
+                }
+            }
+            else {
+                msgShow("По Вашему, $email - это почта?")
+                updateUI(null)
+            }
         }
 
         register_btn.setOnClickListener{
-            createAccount(email = login_edittext.text.toString(), password = password_edittext.text.toString())
+            val email: String = login_edittext.text.toString()
+            val password: String = password_edittext.text.toString()
+
+            if (isEmailValid(email)) {
+                if (isPasswordValid(password)) {
+                    createAccount(
+                        email = login_edittext.text.toString(),
+                        password = password_edittext.text.toString()
+                    )
+                } else {
+                    msgShow("Слишком короткий пароль")
+                    updateUI(null)
+                }
+            } else {
+                msgShow("По Вашему, $email - это почта?")
+                updateUI(null)
+            }
         }
 
         about_us_clickable_text.setOnClickListener {
@@ -43,8 +75,9 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
+        Log.v("auth", currentUser.toString())
         if(currentUser != null){
-            reload();
+            successAuth()
         }
     }
 
@@ -55,13 +88,12 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-                    Toast.makeText(this, "Успешная регистрация", Toast.LENGTH_SHORT).show()
                     updateUI(user)
+                    successAuth()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    msgShow("Регистрация  не удалась")
                     updateUI(null)
                 }
             }
@@ -73,52 +105,40 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
+                    msgShow("Успешный вход)")
                     val user = auth.currentUser
                     updateUI(user)
-                    val i = Intent(this, MainActivity::class.java)
-                    startActivity(i)
-                    finish()
+                    successAuth()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, task.exception.toString(),
-                        Toast.LENGTH_SHORT).show()
+                    msgShow("Не получилось войти(")
                     updateUI(null)
                 }
             }
     }
 
-    /*private fun getCurrentUser() {
-        val user = Firebase.auth.currentUser
-        user?.let {
-            // Name, email address, and profile photo Url
-            val name = user.displayName
-            val email = user.email
-            val photoUrl = user.photoUrl
-
-            // Check if user's email is verified
-            val emailVerified = user.isEmailVerified
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            val uid = user.uid
-        }
-    }*/
-
-    private fun showHide(view:View, isVisible: Boolean) {
-        view.visibility = if (isVisible){
-            View.VISIBLE
-        } else{
-            View.GONE
-        }
-    }
-
     private fun updateUI(user: FirebaseUser?) {
-
+        user.hashCode()
+        login_edittext.setText("")
+        password_edittext.setText("")
     }
 
-    private fun reload() {
+    private fun msgShow(msg:String){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
 
+    private fun isEmailValid(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    private fun isPasswordValid(password: String): Boolean{
+        return password.length > 4
+    }
+
+    private fun successAuth() {
+        val i = Intent(this, MainActivity::class.java)
+        startActivity(i)
+        finish()
     }
 }
