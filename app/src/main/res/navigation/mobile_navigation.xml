@@ -10,7 +10,7 @@
         android:id="@+id/navigation_translation"
         android:name="com.raspopova.gol.ui.translation.TranslationFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_translition" />
 
     <fragment
         android:id="@+id/navigation_main"
