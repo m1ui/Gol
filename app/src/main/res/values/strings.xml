@@ -1,4 +1,5 @@
 <resources>
+    <!-- Global -->
     <string name="app_name">Gol</string>
     <string name="title_home">Лента</string>
     <string name="title_dashboard">Трансляции</string>
@@ -22,4 +23,20 @@
     <string name="singOut_btn">Выйти</string>
     <string name="title_activity_personal">PersonalActivity</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Profile -->
+    <string name="title_profile">Профиль</string>
+    <string name="dark_mode">Тёмная тема</string>
+
+    <!-- Test Recycler -->
+    <string name="title1">первый</string>
+    <string name="title2">второй</string>
+    <string name="title3">третий</string>
+    <string name="title4">четвёртый</string>
+    <string name="title5">пятый</string>
+    <string name="title6">шестой</string>
+    <string name="title7">седьмой</string>
+    <string name="title8">восьмой</string>
+    <string name="title9">девятый</string>
+    <string name="title10">десятый</string>
 </resources>
