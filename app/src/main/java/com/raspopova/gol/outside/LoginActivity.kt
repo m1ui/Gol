@@ -1,4 +1,4 @@
-package com.raspopova.gol
+package com.raspopova.gol.outside
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -12,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.raspopova.gol.inside.MainActivity
+import com.raspopova.gol.R
 import com.raspopova.gol.data.Consts.Companion.VK_URL
 import kotlinx.android.synthetic.main.activity_login.*
 

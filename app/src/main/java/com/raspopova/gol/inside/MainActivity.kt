@@ -1,4 +1,4 @@
-package com.raspopova.gol
+package com.raspopova.gol.inside
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.raspopova.gol.R
 import com.raspopova.gol.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

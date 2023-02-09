@@ -1,23 +1,12 @@
-package com.raspopova.gol
+package com.raspopova.gol.outside
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import com.google.android.material.snackbar.Snackbar
+import com.raspopova.gol.R
 import com.raspopova.gol.data.Consts
 import kotlinx.android.synthetic.main.activity_splash_screen.*
-import java.util.*
-import kotlin.concurrent.schedule
-import kotlin.concurrent.thread
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

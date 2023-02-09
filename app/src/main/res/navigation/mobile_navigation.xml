@@ -8,19 +8,19 @@
 
     <fragment
         android:id="@+id/navigation_translation"
-        android:name="com.raspopova.gol.ui.translation.TranslationFragment"
+        android:name="com.raspopova.gol.inside.ui.translation.TranslationFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_translition" />
 
     <fragment
         android:id="@+id/navigation_main"
-        android:name="com.raspopova.gol.ui.main.MainFragment"
+        android:name="com.raspopova.gol.inside.ui.main.NewsFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.raspopova.gol.ui.notifications.NotificationsFragment"
+        android:name="com.raspopova.gol.inside.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

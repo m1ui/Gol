@@ -1,4 +1,4 @@
-package com.raspopova.gol.ui.translation
+package com.raspopova.gol.inside.ui.translation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

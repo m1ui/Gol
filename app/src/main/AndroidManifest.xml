@@ -16,15 +16,15 @@
         android:theme="@style/Theme.Gol"
         tools:targetApi="31" >
         <activity
-            android:name=".ProfileActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".inside.ProfileActivity"
+            android:parentActivityName=".inside.MainActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".outside.LoginActivity"
             android:exported="false"
             android:theme="@style/Login.Theme" >
             <meta-data
@@ -32,7 +32,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".outside.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashScreenActivity.Theme" >
             <intent-filter>
@@ -46,7 +46,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".inside.MainActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

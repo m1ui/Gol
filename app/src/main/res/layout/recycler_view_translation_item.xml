@@ -3,39 +3,44 @@
     android:id="@+id/item_card_container"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_margin="12dp"
         android:layout_gravity="center">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/item_title_translation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|top"
                 android:gravity="center"
                 android:textSize="28sp"
-                android:layout_margin="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:textColor="@color/green_500"/>
 
             <VideoView
-                android:id="@+id/item_video"
+                android:id="@+id/video"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/preview_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
 
             <TextView
                 android:id="@+id/item_description_translation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="bottom|center"
                 android:gravity="start"
                 android:textSize="18sp"
-                android:layout_margin="15dp"/>
-
-        </LinearLayout>
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
 
     </com.google.android.material.card.MaterialCardView>

@@ -1,14 +1,14 @@
-package com.raspopova.gol
+package com.raspopova.gol.inside
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.raspopova.gol.data.Consts
+import com.raspopova.gol.R
 import com.raspopova.gol.data.Consts.Companion.DARK_MODE_CHECK
+import com.raspopova.gol.outside.LoginActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
@@ -39,6 +39,9 @@ class ProfileActivity : AppCompatActivity() {
         //SignOut
         sign_out_btn.setOnClickListener {
             signOut()
+        }
+
+        easter_egg_tv.setOnClickListener{
         }
 
         val user = Firebase.auth.currentUser
