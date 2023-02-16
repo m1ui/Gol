@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/navigation_main"
-        android:name="com.raspopova.gol.inside.ui.main.NewsFragment"
+        android:name="com.raspopova.gol.inside.ui.news.NewsFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_news" />
 

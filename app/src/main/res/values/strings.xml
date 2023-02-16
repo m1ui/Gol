@@ -28,6 +28,9 @@
     <string name="title_profile">Профиль</string>
     <string name="dark_mode">Тёмная тема</string>
 
+    <!-- News -->
+    <string name="default_search_text">Covid 19</string>
+
     <!-- Test Recycler -->
     <string name="title1">первый</string>
     <string name="title2">второй</string>
