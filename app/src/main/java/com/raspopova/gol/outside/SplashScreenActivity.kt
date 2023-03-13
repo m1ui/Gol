@@ -21,7 +21,6 @@ class SplashScreenActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
-
         splash_logo.alpha = 0f
         splash_logo.animate().setDuration(Consts.SPLASH_TIMEOUT.toLong()).alpha(1f).withEndAction{
             val i = Intent(this, LoginActivity::class.java)

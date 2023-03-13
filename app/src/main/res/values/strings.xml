@@ -24,9 +24,17 @@
     <string name="title_activity_personal">PersonalActivity</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Profile -->
+    <!-- Profile Activity -->
     <string name="title_profile">Профиль</string>
     <string name="dark_mode">Тёмная тема</string>
+    <string name="notifications_on">Уведомления</string>
+    <string name="subscribe">Подписаться</string>
+
+    <string name="tg_me">Мы в Телеграм</string>
+    <string name="vk_me">Мы в ВК</string>
+    <string name="inst_me">Мы в Истаграмм</string>
+
+    <string name="profile_avatar">Фото профиля</string>
 
     <!-- News -->
     <string name="default_search_text">Covid 19</string>
@@ -42,4 +50,8 @@
     <string name="title8">восьмой</string>
     <string name="title9">девятый</string>
     <string name="title10">десятый</string>
+
+    <!-- Channels -->
+    <string name="channel_name">first</string>
+    <string name="channel_description">first</string>
 </resources>

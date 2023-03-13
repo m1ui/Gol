@@ -8,7 +8,8 @@ class Consts {
         // Shared Preferences Dark Mode
         const val DARK_MODE_CHECK = "DM"
 
-        // API Keys
+        // Shared  Notifications
+        const val NOTIFICATIONS = "NF"
 
     }
 }

@@ -5,12 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".inside.ui.notifications.NotificationsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:layout_marginBottom="15dp"
-        android:clipToPadding="true"
-        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
