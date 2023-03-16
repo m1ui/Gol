@@ -24,6 +24,10 @@
     <string name="title_activity_personal">PersonalActivity</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Splash Screen -->
+
+    <string name="background">Фон загрузки</string>
+
     <!-- Profile Activity -->
     <string name="title_profile">Профиль</string>
     <string name="dark_mode">Тёмная тема</string>
