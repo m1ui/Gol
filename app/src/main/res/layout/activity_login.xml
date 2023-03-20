@@ -7,6 +7,7 @@
     tools:context=".outside.LoginActivity">
 
     <TextView
+        android:id="@+id/hello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
@@ -86,16 +87,16 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:text="@string/login_btn" />
+                android:text="@string/login_btn_1" />
 
             <Button
-                android:id="@+id/register_btn"
+                android:id="@+id/refresh_ui_btn"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="@string/register_btn" />
+                android:text="@string/register_btn_1" />
 
     </LinearLayout>
 

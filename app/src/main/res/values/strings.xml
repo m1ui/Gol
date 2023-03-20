@@ -4,25 +4,32 @@
     <string name="title_home">Лента</string>
     <string name="title_dashboard">Трансляции</string>
     <string name="title_notifications">Больше</string>
+    <string name="action_settings">Настройки</string>
+
+
+    <!-- Login/Register Activity -->
+    <string name="login_title">Добро пожаловать</string>
+    <string name="register_title">Давайте знакомиться</string>
+
+    <string name="login_btn_1">Войти</string>
+    <string name="login_btn_2">Создать</string>
+
+    <string name="register_btn_1">Регистрация</string>
+    <string name="register_btn_2">Уже есть аккаунт</string>
+
+    <string name="login_hint">Почта</string>
+    <string name="password_hint">Пароль</string>
+
+    <string name="login_text_about"><u>О нас</u></string>
+    <string name="singOut_btn">Выйти</string>
     <string name="title_activity_login">Вход</string>
     <string name="prompt_email">Почта</string>
     <string name="prompt_password">Пароль</string>
-    <string name="action_sign_in">Войти или Зарегистрироваться</string>
     <string name="action_sign_in_short">Войти</string>
     <string name="welcome">"Добропожаловать !"</string>
     <string name="invalid_username">Неверное имя пользователя</string>
     <string name="invalid_password">Пароль должен быть больше 5 символов</string>
     <string name="login_failed">Войти не получилось</string>
-
-    <string name="login_hint">Почта</string>
-    <string name="password_hint">Пароль</string>
-    <string name="login_btn">Войти</string>
-    <string name="register_btn">Регистрация</string>
-    <string name="login_title">Добро пожаловать :)</string>
-    <string name="login_text_about"><u>О нас</u></string>
-    <string name="singOut_btn">Выйти</string>
-    <string name="title_activity_personal">Профиль</string>
-    <string name="action_settings">Настройки</string>
 
     <string name="like">Лайк</string>
 
@@ -31,6 +38,7 @@
     <string name="background">Фон загрузки</string>
 
     <!-- Profile Activity -->
+    <string name="title_activity_personal">Профиль</string>
     <string name="title_profile">Профиль</string>
     <string name="dark_mode">Тёмная тема</string>
     <string name="notifications_on">Уведомления</string>
@@ -41,24 +49,5 @@
     <string name="inst_me">Мы в Истаграмм</string>
 
     <string name="profile_avatar">Фото профиля</string>
-
-    <!-- News -->
-    <!-- Test Recycler -->
-    <string name="title1">«Реал» отказался от идеи подписания Мбаппе</string>
-    <string name="descript1">Мадридский футбольный клуб «Реал» не собирается подписывать звездного нападающего ПСЖ и сборной Франции Килиана Мбаппе любой ценой.</string>
-
-    <string name="title2">Бразилия не смогла подтвердить статус главного фаворита чемпионата мира</string>
-    <string name="descript2">Сборная Бразилии по футболу не оправдала выданные ею авансы как главному фавориту чемпионата мира в Катаре.</string>
-
-    <string name="title3">Испания покинула чемпионат мира с антирекордом турнира</string>
-    <string name="descript3">Сборная Испании по футболу неожиданно рано завершила свой путь на чемпионате мира в Катаре, споткнувшись о первого же соперника по плей-офф.</string>
-
-    <string name="title4">четвёртый</string>
-    <string name="title5">пятый</string>
-    <string name="title6">шестой</string>
-    <string name="title7">седьмой</string>
-    <string name="title8">восьмой</string>
-    <string name="title9">девятый</string>
-    <string name="title10">десятый</string>
 
 </resources>

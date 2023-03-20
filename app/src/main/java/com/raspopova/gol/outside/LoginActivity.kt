@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private var registr: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,46 +37,55 @@ class LoginActivity : AppCompatActivity() {
         login_btn.setOnClickListener {
             val email: String = login_edittext.text.toString()
             val password: String = password_edittext.text.toString()
-            if (isEmailValid(email)) {
-                if (isPasswordValid(password)) {
-                    singIn(
-                        email = login_edittext.text.toString(),
-                        password = password_edittext.text.toString()
-                    )
-                } else {
-                    msgShow("Слишком короткий пароль")
-                    updateUI(null)
-                }
-            }
-            else {
-                msgShow("По Вашему, $email - это почта?")
-                updateUI(null)
+            if (registr) {
+                registrationUser(email, password)
+            } else {
+                loginUser(email, password)
             }
         }
 
-        register_btn.setOnClickListener{
-            val email: String = login_edittext.text.toString()
-            val password: String = password_edittext.text.toString()
-
-            if (isEmailValid(email)) {
-                if (isPasswordValid(password)) {
-                    createAccount(
-                        email = login_edittext.text.toString(),
-                        password = password_edittext.text.toString()
-                    )
-                } else {
-                    msgShow("Слишком короткий пароль")
-                    updateUI(null)
-                }
-            } else {
-                msgShow("По Вашему, $email - это почта?")
-                updateUI(null)
-            }
+        refresh_ui_btn.setOnClickListener{
+            updateUI(registr)
         }
 
         about_us_clickable_text.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW).setData(Uri.parse(VK_URL))
             startActivity(i)
+        }
+    }
+
+    private fun loginUser(email: String, password: String) {
+        if (isEmailValid(email)) {
+            if (isPasswordValid(password)) {
+                singIn(
+                    email = login_edittext.text.toString(),
+                    password = password_edittext.text.toString()
+                )
+            } else {
+                msgShow("Слишком короткий пароль")
+                cleanerUI(null)
+            }
+        }
+        else {
+            msgShow("По Вашему, $email - это почта?")
+            cleanerUI(null)
+        }
+    }
+    private fun registrationUser(email: String, password: String) {
+
+        if (isEmailValid(email)) {
+            if (isPasswordValid(password)) {
+                createAccount(
+                    email = login_edittext.text.toString(),
+                    password = password_edittext.text.toString()
+                )
+            } else {
+                msgShow("Слишком короткий пароль")
+                cleanerUI(null)
+            }
+        } else {
+            msgShow("По Вашему, $email - это почта?")
+            cleanerUI(null)
         }
     }
 
@@ -97,13 +107,13 @@ class LoginActivity : AppCompatActivity() {
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
                     msgShow("Вы успешно зарегистрированы")
-                    updateUI(user)
+                    cleanerUI(user)
                     successAuth()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     msgShow("Регистрация  не удалась")
-                    updateUI(null)
+                    cleanerUI(null)
                 }
             }
     }
@@ -116,22 +126,38 @@ class LoginActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithEmail:success")
                     msgShow("Успешный вход)")
                     val user = auth.currentUser
-                    updateUI(user)
+                    cleanerUI(user)
                     successAuth()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     //msg
                     msgShow("Возможно что-то не верно")
-                    updateUI(null)
+                    cleanerUI(null)
                 }
             }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
+    private fun cleanerUI(user: FirebaseUser?) {
         user.hashCode()
         login_edittext.setText("")
         password_edittext.setText("")
+    }
+
+    private fun updateUI(register: Boolean) {
+        if (register) {
+            // Login
+            hello.text = getString(R.string.login_title)
+            registr = false
+            login_btn.setText(R.string.login_btn_1)
+            refresh_ui_btn.setText(R.string.register_btn_1)
+        } else {
+            // Registration
+            hello.text = getString(R.string.register_title)
+            registr = true
+            login_btn.setText(R.string.login_btn_2)
+            refresh_ui_btn.setText(R.string.register_btn_2)
+        }
     }
 
     private fun msgShow(msg:String){
