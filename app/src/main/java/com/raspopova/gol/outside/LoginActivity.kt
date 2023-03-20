@@ -9,15 +9,13 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
-import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.raspopova.gol.inside.MainActivity
 import com.raspopova.gol.R
 import com.raspopova.gol.data.Consts.Companion.VK_URL
+import com.raspopova.gol.inside.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -29,10 +27,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         // Protected Firebase
         FirebaseApp.initializeApp(/*context=*/this)
-        val firebaseAppCheck = FirebaseAppCheck.getInstance()
-        firebaseAppCheck.installAppCheckProviderFactory(
-            PlayIntegrityAppCheckProviderFactory.getInstance()
-        )
+
+        //val firebaseAppCheck = FirebaseAppCheck.getInstance()
 
         // Initialize Firebase Auth
         auth = Firebase.auth

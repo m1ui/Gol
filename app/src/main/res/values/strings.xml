@@ -4,15 +4,15 @@
     <string name="title_home">Лента</string>
     <string name="title_dashboard">Трансляции</string>
     <string name="title_notifications">Больше</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_login">Вход</string>
+    <string name="prompt_email">Почта</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войти или Зарегистрироваться</string>
+    <string name="action_sign_in_short">Войти</string>
+    <string name="welcome">"Добропожаловать !"</string>
+    <string name="invalid_username">Неверное имя пользователя</string>
+    <string name="invalid_password">Пароль должен быть больше 5 символов</string>
+    <string name="login_failed">Войти не получилось</string>
 
     <string name="login_hint">Почта</string>
     <string name="password_hint">Пароль</string>
@@ -21,8 +21,10 @@
     <string name="login_title">Добро пожаловать :)</string>
     <string name="login_text_about"><u>О нас</u></string>
     <string name="singOut_btn">Выйти</string>
-    <string name="title_activity_personal">PersonalActivity</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_personal">Профиль</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="like">Лайк</string>
 
     <!-- Splash Screen -->
 
@@ -41,12 +43,16 @@
     <string name="profile_avatar">Фото профиля</string>
 
     <!-- News -->
-    <string name="default_search_text">Covid 19</string>
-
     <!-- Test Recycler -->
-    <string name="title1">первый</string>
-    <string name="title2">второй</string>
-    <string name="title3">третий</string>
+    <string name="title1">«Реал» отказался от идеи подписания Мбаппе</string>
+    <string name="descript1">Мадридский футбольный клуб «Реал» не собирается подписывать звездного нападающего ПСЖ и сборной Франции Килиана Мбаппе любой ценой.</string>
+
+    <string name="title2">Бразилия не смогла подтвердить статус главного фаворита чемпионата мира</string>
+    <string name="descript2">Сборная Бразилии по футболу не оправдала выданные ею авансы как главному фавориту чемпионата мира в Катаре.</string>
+
+    <string name="title3">Испания покинула чемпионат мира с антирекордом турнира</string>
+    <string name="descript3">Сборная Испании по футболу неожиданно рано завершила свой путь на чемпионате мира в Катаре, споткнувшись о первого же соперника по плей-офф.</string>
+
     <string name="title4">четвёртый</string>
     <string name="title5">пятый</string>
     <string name="title6">шестой</string>
@@ -55,7 +61,4 @@
     <string name="title9">девятый</string>
     <string name="title10">десятый</string>
 
-    <!-- Channels -->
-    <string name="channel_name">first</string>
-    <string name="channel_description">first</string>
 </resources>

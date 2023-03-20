@@ -1,17 +1,14 @@
 package com.raspopova.gol.inside.ui.news
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.raspopova.gol.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.raspopova.gol.databinding.FragmentNewsBinding
-import java.util.*
+import com.raspopova.gol.inside.ui.news.data.NewsAdapter
+import kotlinx.android.synthetic.main.fragment_news.*
 
 
 class NewsFragment : Fragment() {
@@ -25,12 +22,19 @@ class NewsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {_binding = FragmentNewsBinding.inflate(inflater, container, false)
+
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        news_rv.apply {
+            layoutManager = LinearLayoutManager(activity)
+
+            adapter = NewsAdapter()
+        }
     }
 
     override fun onDestroyView() {
