@@ -1,92 +1,88 @@
 package com.raspopova.gol.inside
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.preference.PreferenceManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.raspopova.gol.R
-import com.raspopova.gol.data.Consts.Companion.DARK_MODE_CHECK
-import com.raspopova.gol.data.Consts.Companion.NOTIFICATIONS
 import com.raspopova.gol.outside.LoginActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
+
 class ProfileActivity : AppCompatActivity() {
-    @SuppressLint("SetTextI18n")
+
+    @SuppressLint("SetTextI18n", "SoonBlockedPrivateApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         title = "Профиль"
-        enable_notifications.isChecked
-                
+        username_tv.text = "Имя"
+        surname_tv.text = "Фамилия"
         //Save Auth
         checkCurrentUser()
-        // Notifications
-        val notificationPref = getSharedPreferences(NOTIFICATIONS, MODE_PRIVATE)
-        val nfEditor = notificationPref.edit()
-
-        enable_notifications.isChecked = notificationPref.getBoolean(NOTIFICATIONS, false)
-        enable_notifications.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
-                nfEditor.putBoolean(NOTIFICATIONS, true)
-            } else {
-                nfEditor.putBoolean(NOTIFICATIONS, false)
-            }
-            nfEditor.apply()
-        }
-
-
-        // Dark Mode
-        val sharedPreferences = getSharedPreferences(DARK_MODE_CHECK, MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-
-        enable_dark_mode.isChecked = sharedPreferences.getBoolean(DARK_MODE_CHECK, false)
-        enable_dark_mode.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked){
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                editor.putBoolean(DARK_MODE_CHECK, true)
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                editor.putBoolean(DARK_MODE_CHECK, false)
-            }
-            editor.apply()
-        }
 
         //SignOut
         sign_out_btn.setOnClickListener {
             signOut()
         }
 
-        // easter_egg
-        easter_egg_tv.setOnClickListener{
-        }
-
         tg_me.setOnClickListener{
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/itilga"))
-            startActivity(browserIntent)
+            openBrowser("https://t.me/itilga")
         }
 
         vk_me.setOnClickListener{
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/itilga"))
-            startActivity(browserIntent)
+            openBrowser("https://vk.com/itilga")
         }
 
         inst_me.setOnClickListener{
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/away.php?to=https%3A%2F%2Finstagram.com%2F_itilga%3Figshid%3DYmMyMTA2M2Y%3D&cc_key="))
-            startActivity(browserIntent)
+            openBrowser("https://vk.com/away.php?to=https%3A%2F%2Finstagram.com%2F_itilga%3Figshid%3DYmMyMTA2M2Y%3D&cc_key=")
         }
 
         git_me.setOnClickListener{
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/m1ui"))
-            startActivity(browserIntent)
+            openBrowser("https://github.com/m1ui")
         }
 
-        val user = Firebase.auth.currentUser
-        username_tv.text = "Логин: " + user?.email
+    }
 
+    override fun onResume() {
+        super.onResume()
+        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val name = prefs.getString("name", "Имя")
+        val surname = prefs.getString("surname", "Фамилия")
+        username_tv.text = name
+        surname_tv.text = surname
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.settings_nav_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            val i = Intent(this, SettingsActivity::class.java)
+            startActivity(i)
+            onPause()
+            // User chose the "Settings" item, show the app settings UI...
+            true
+        }
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
+        }
     }
 
     private fun checkCurrentUser() {
@@ -102,10 +98,47 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun signOut() {
         // [START auth_sign_out]
+        cleanShared()
         Firebase.auth.signOut()
         val i = Intent(this, LoginActivity::class.java)
         startActivity(i)
         finish()
         // [END auth_sign_out]
+    }
+
+    private fun sendPasswordReset() {
+        // [START send_password_reset]
+        val emailAddress = "user@example.com"
+
+        Firebase.auth.sendPasswordResetEmail(emailAddress)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "Email sent.")
+                }
+            }
+        // [END send_password_reset]
+    }
+
+    private fun deleteUser() {
+        // [START delete_user]
+        val user = Firebase.auth.currentUser!!
+
+        user.delete()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    cleanShared()
+                    Log.d(TAG, "User account deleted.")
+                }
+            }
+        // [END delete_user]
+    }
+
+    private fun cleanShared() {
+        PreferenceManager.getDefaultSharedPreferences(this).all.clear()
+    }
+
+    private fun openBrowser(url: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
     }
 }

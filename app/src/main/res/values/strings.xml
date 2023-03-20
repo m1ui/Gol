@@ -49,5 +49,18 @@
     <string name="inst_me">Мы в Истаграмм</string>
 
     <string name="profile_avatar">Фото профиля</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Профиль</string>
+    <string name="sync_header">Прочее</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Ваше Имя</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Уведомления</string>
+    <string name="attachment_title">Тема</string>
+    <string name="attachment_summary_on">Тёмная тема</string>
+    <string name="attachment_summary_off">Светлая тема</string>
 
 </resources>

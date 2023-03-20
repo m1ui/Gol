@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.preference.PreferenceManager
 import com.raspopova.gol.R
 import com.raspopova.gol.data.Consts
 import kotlinx.android.synthetic.main.activity_splash_screen.*
@@ -16,8 +17,8 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         // Check Dark Mode
-        val sharedPreferences = getSharedPreferences(Consts.DARK_MODE_CHECK, MODE_PRIVATE)
-        if (sharedPreferences.getBoolean(Consts.DARK_MODE_CHECK, false)) {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        if (sharedPreferences.getBoolean("dark", false)) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

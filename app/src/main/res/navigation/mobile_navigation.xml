@@ -23,4 +23,5 @@
         android:name="com.raspopova.gol.inside.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
 </navigation>

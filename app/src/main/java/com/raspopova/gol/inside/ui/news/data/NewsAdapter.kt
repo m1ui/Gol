@@ -5,14 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.raspopova.gol.R
+import com.raspopova.gol.inside.MainActivity
 
 @Suppress("DEPRECATION")
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     // Data
-
     private val title = arrayOf(
         "«Реал» отказался от идеи подписания Мбаппе",
         "Бразилия не смогла подтвердить статус главного фаворита чемпионата мира",
@@ -43,8 +44,8 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
         "2022-11-09",
         "2022-11-09")
 
-    private val licked = arrayOf(false,
-        true, false, false,
+    private var licked = mutableListOf<Boolean>(false,
+        false, false, false,
         false, false, false,
         false)
 
