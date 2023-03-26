@@ -1,5 +1,7 @@
 package com.raspopova.gol.inside
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -17,10 +19,18 @@ import com.raspopova.gol.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    class CloserClass {
+        companion object {
+            @SuppressLint("StaticFieldLeak")
+            var activity: Activity? = null
+        }
+    }
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        CloserClass.activity = this@MainActivity
 
         //Save Auth
         checkCurrentUser()

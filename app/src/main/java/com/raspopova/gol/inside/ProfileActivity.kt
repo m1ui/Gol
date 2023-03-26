@@ -102,15 +102,14 @@ class ProfileActivity : AppCompatActivity() {
         Firebase.auth.signOut()
         val i = Intent(this, LoginActivity::class.java)
         startActivity(i)
+        MainActivity.CloserClass.activity?.finish()
         finish()
         // [END auth_sign_out]
     }
 
-    private fun sendPasswordReset() {
-        // [START send_password_reset]
-        val emailAddress = "user@example.com"
+    private fun sendPasswordReset(email: String) {
 
-        Firebase.auth.sendPasswordResetEmail(emailAddress)
+        Firebase.auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "Email sent.")
@@ -134,7 +133,10 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun cleanShared() {
-        PreferenceManager.getDefaultSharedPreferences(this).all.clear()
+        val pref = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor = pref.edit()
+        editor.clear()
+        editor.apply()
     }
 
     private fun openBrowser(url: String) {

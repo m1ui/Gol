@@ -20,8 +20,8 @@
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.raspopova.gol.inside.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:name="com.raspopova.gol.inside.ui.prime.NotificationsFragment"
+        android:label="@string/title_prime"
         tools:layout="@layout/fragment_notifications" />
 
 </navigation>
