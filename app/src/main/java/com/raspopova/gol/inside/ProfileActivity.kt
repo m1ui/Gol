@@ -14,8 +14,11 @@ import androidx.preference.PreferenceManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.raspopova.gol.R
+import com.raspopova.gol.data.Consts.Companion.NEWS_LINK
 import com.raspopova.gol.outside.LoginActivity
 import kotlinx.android.synthetic.main.activity_profile.*
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -29,6 +32,7 @@ class ProfileActivity : AppCompatActivity() {
         surname_tv.text = "Фамилия"
         //Save Auth
         checkCurrentUser()
+        //parseHtml()
 
         //SignOut
         sign_out_btn.setOnClickListener {
@@ -130,6 +134,14 @@ class ProfileActivity : AppCompatActivity() {
                 }
             }
         // [END delete_user]
+    }
+
+    private fun parseHtml() {
+        val doc: Document = Jsoup.connect(NEWS_LINK).get()
+        username_tv.text = doc.title()
+        val news = doc.select(".news")
+        val text = news.eq(2).text()
+        surname_tv.text = text
     }
 
     private fun cleanShared() {

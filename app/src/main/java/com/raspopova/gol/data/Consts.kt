@@ -5,11 +5,8 @@ class Consts {
         const val SPLASH_TIMEOUT = 2500
         const val VK_URL = "https://vk.com/itilga"
 
-        // Shared Preferences Dark Mode
-        const val DARK_MODE_CHECK = "DM"
-
-        // Shared  Notifications
-        const val NOTIFICATIONS = "NF"
+        // Parse news link
+        const val NEWS_LINK = "http://raspnewssoccer.ru.swtest.ru/"
 
     }
 }

@@ -57,6 +57,9 @@ dependencies {
     // Faker
     implementation 'com.github.javafaker:javafaker:1.0.2'
 
+    // okHttp
+    implementation ('com.squareup.okhttp3:okhttp:4.10.0')
+
     // Add the dependency for the App Check library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-appcheck-playintegrity'
