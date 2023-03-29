@@ -61,6 +61,17 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
             description = view.findViewById(R.id.description_news)
             isLiked = view.findViewById(R.id.like_news)
             date = view.findViewById(R.id.date_news)
+
+            view.setOnClickListener(object : DoubleClickListener() {
+                override fun onDoubleClick(v: View) {
+                    val position: Int = adapterPosition
+                    if (!licked[position]) {
+                        isLiked.setImageResource(R.drawable.ic_football_heart_red)
+                        licked[position] = true
+                    }
+                }
+            })
+
             isLiked.setOnClickListener {
                 val position: Int = adapterPosition
                 if (licked[position]) {
@@ -96,5 +107,21 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return title.size
+    }
+}
+
+abstract class DoubleClickListener : View.OnClickListener{
+    private var lastClickTime: Long = 0
+    override fun onClick(v: View) {
+        val clickTime = System.currentTimeMillis()
+        if (clickTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA) {
+            onDoubleClick(v)
+            lastClickTime = 0
+        }
+        lastClickTime = clickTime
+    }
+    abstract fun onDoubleClick(v: View)
+    companion object {
+        private const val DOUBLE_CLICK_TIME_DELTA: Long = 300 //milliseconds
     }
 }

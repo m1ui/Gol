@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.raspopova.gol.databinding.FragmentNotificationsBinding
 
-class NotificationsFragment : Fragment() {
+class PrimeFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
 
