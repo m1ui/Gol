@@ -5,10 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.raspopova.gol.R
-import com.raspopova.gol.inside.MainActivity
 
 @Suppress("DEPRECATION")
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
@@ -63,20 +61,6 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
             description = view.findViewById(R.id.description_news)
             isLiked = view.findViewById(R.id.like_news)
             date = view.findViewById(R.id.date_news)
-
-            view.setOnClickListener {
-                var position: Int = adapterPosition
-                val context = view.context
-                /* val intent = Intent(context, DetailsNewsActivity::class.java).apply{
-
-                    putExtra("NUMBER", position)
-                    putExtra("CODE", itemKode.text)
-                    putExtra("CATEGORY", itemKategori.text)
-                    putExtra("CONTENT", itemIsi.text)
-
-                } */
-                // context.startActivity(intent)
-            }
             isLiked.setOnClickListener {
                 val position: Int = adapterPosition
                 if (licked[position]) {

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_main">
+    app:startDestination="@+id/navigation_translation">
 
 
     <fragment
         android:id="@+id/navigation_translation"
-        android:name="com.raspopova.gol.inside.ui.translation.TranslationFragment"
+        android:name="com.raspopova.gol.inside.ui.streams.StreamsFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_translition" />
 
