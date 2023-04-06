@@ -22,6 +22,6 @@
         android:id="@+id/navigation_more"
         android:name="com.raspopova.gol.inside.ui.prime.PrimeFragment"
         android:label="@string/title_prime"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_prime" />
 
 </navigation>
