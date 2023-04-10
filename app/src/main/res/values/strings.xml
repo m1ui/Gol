@@ -70,7 +70,8 @@
     <string name="one">Отсутствие рекламы</string>
     <string name="two">Записи трансляций</string>
     <string name="three">Уведомления о трансляциях</string>
-    <string name="four">FHD качество</string>
+    <string name="four">FHD+ качество</string>
     <string name="five">Скидки на наши сервисы</string>
+    <string name="pay">Подключить премиум</string>
 
 </resources>
